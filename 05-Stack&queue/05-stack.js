@@ -16,9 +16,45 @@ const { Stack, Queue } = require("../estructuras")
 
 
 function efectoEspejo(str){  
-//tu codigo aqui
+    //     //tu codigo aqui
+    
+    // let espejo = new Stack();
+    // let fraseFinal = "";
+    // let pal = "";
+    // for (let i = str.length - 1; i >= 0; i--) {
+    //     if(str[i] !== " "){
+    //         pal += str[i]
+    //     } else {
+    //         espejo.push(pal);
+    //         pal = "";
+    //     }
+    //     if (i === 0){
+    //         espejo.push(pal)
+    //     }
+    // }
+    // for (let j = espejo.size(); j > 0; j--) { 
+    //     fraseFinal += espejo.pop() + " ";   
+    // }
+    // fraseFinal = fraseFinal.substring(0, str.length);
+    // return fraseFinal;
+    
+    let reverse = new Stack();
+    let aux = "";
 
+    for (let i = 0; i < str.length; i++) {
+        if(str[i] === " "){
+            while(reverse.size()){
+                aux += reverse.pop();
+            }
+            aux+=str[i];
+        } else {
+            reverse.push(str[i])
+        }
+    }
 
+    while(reverse.size()) aux += reverse.pop();
+
+    return aux;
 };
 
 
